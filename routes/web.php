@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Hellov2Controller;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('/hello',  [Hellov2Controller::class, 'show']);
+
+Route::get('/users/list',  [UsersController::class, 'index'])->middleware('auth');
 
 Auth::routes();
 

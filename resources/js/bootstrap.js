@@ -6,8 +6,15 @@ import 'bootstrap';
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
 import axios from 'axios';
 window.axios = axios;
+
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+window.Swal = Swal;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

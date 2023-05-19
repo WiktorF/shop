@@ -51,6 +51,7 @@
     "readdirp": "^3.6.0",
     "rollup": "^3.21.7",
     "source-map-js": "^1.0.2",
+    "sweetalert2": "^11.4.8",
     "to-regex-range": "^5.0.1",
     "vite-plugin-full-reload": "^1.0.5"
   },

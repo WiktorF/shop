@@ -32,20 +32,8 @@
 </div>
   @endsection
   @section('javascript')
-  $(document).ready(function(){
-    $('.delete').click(function(){
-        $.ajax({
-            method: "DELETE",
-            url: "http://kurs.test:8000/users/"+ $(this).data("id"),
-            //data: [id: $(this).data("id")]
-            })
-            .done(function(response){
-                window.location.reload();
-            })
-            .fail(function(response){
-                alert('ERROR');
-            })
-
-        })
-    })
+    const deleteUrl = "{{url('users')}}/";
+  @endsection
+  @section('js-files')
+    @vite(['resources/js/test.js'])
   @endsection

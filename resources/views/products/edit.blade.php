@@ -68,27 +68,35 @@
                             <label for="image" class="col-md-4 col-form-label text-md-end">Image</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control" name="image">
+                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
+                                @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6 justify-center">
-                                <img src="{{ asset('storage/' . $product->image_path) }}" class="img-fluid mx-auto d-block" alt="Zdjecie">
+                                @if(!is_null($product->image_path))
+                                    <img src="{{ asset('storage/' . $product->image_path) }}" class="img-fluid mx-auto d-block" alt="Zdjecie">
+                                @endif
+
                             </div>
                         </div>
 
-                <div class="row mb-0">
-                    <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="btn btn-primary">
-                            Edytuj
-                        </button>
-                    </div>
+                        <div class="row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Edytuj
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection

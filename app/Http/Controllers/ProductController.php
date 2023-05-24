@@ -34,6 +34,8 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product($request->all());
+        $request->file('image')->store('public/products');
+        $product->image_path = $request->file('image')->store('products');
         $product->save();
         return redirect(route('products.index'));
     }
@@ -64,6 +66,11 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $product->fill($request->all());
+        if($request->hasFile('image')){
+            $request->file('image')->store('public/products');
+            $product->image_path = $request->file('image')->store('products');
+        }
+
         $product->save();
         return redirect(route('products.index'));
 

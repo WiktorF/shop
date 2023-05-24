@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Hellov2Controller;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\ProductController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Hellov2Controller;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/', function () {
 });
 
 Route::get('/hello',  [Hellov2Controller::class, 'show']);
+
+Route::get('/',  [WelcomeController::class, 'index']);
 
 Route::get('/products',  [ProductController::class, 'index'])->name('products.index')->middleware('auth');
 Route::get('/products/create',  [ProductController::class, 'create'])->name('products.create')->middleware('auth');

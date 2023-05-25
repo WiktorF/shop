@@ -7,7 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\UpsertProductRequest;
-
+use App\Models\ProductCategory;
 
 class ProductController extends Controller
 {
@@ -26,7 +26,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('products.create', [
+            'categories' => ProductCategory::all(),
+        ]);
     }
 
     /**
@@ -50,7 +52,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         return view('products.show', [
-            'product' => $product
+            'product' => $product,
+            'categories' => ProductCategory::all(),
         ]);
     }
 
@@ -60,7 +63,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         return view('products.edit', [
-            'product' => $product
+            'product' => $product,
+            'categories' => ProductCategory::all(),
         ]);
     }
 

@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row">
             <div class="col-6">
-                <h1>Lista produktów</h1>
+                <h1>{{__('shop.product.index_title')}}</h1>
             </div>
             <div class="col-6">
                 <a class="float-right" href="{{route('products.create')}}">
-                    <button type="button" class="btn btn-primary">Dodaj</button>
+                    <button type="button" class="btn btn-primary">{{__('shop.button.add')}}</button>
                 </a>
             </div>
     </div>
@@ -17,11 +17,12 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Price</th>
-        <th scope="col">Akcje</th>
+        <th scope="col">{{__('shop.product.fields.name')}}</th>
+        <th scope="col">{{__('shop.product.fields.description')}}</th>
+        <th scope="col">{{__('shop.product.fields.amount')}}</th>
+        <th scope="col">{{__('shop.product.fields.price')}}</th>
+        <th scope="col">{{__('shop.product.fields.category')}}</th>
+        <th scope="col">{{__('shop.product.fields.action')}}</th>
       </tr>
     </thead>
     <tbody>
@@ -32,6 +33,10 @@
                 <td>{{$product->description}}</td>
                 <td>{{$product->amount}}</td>
                 <td>{{$product->price}}</td>
+                <td>@if($product->hasCategory())
+                    {{$product->category->name}}
+                @endif</td>
+
                 <td>
                     <a href="{{ route('products.show', $product->id) }}">
                         <button class="btn btn-primary btn-sm">P</button>

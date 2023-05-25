@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'welcome' => [
+        'show' => 'Podgląd',
+        'products' => 'Produkty',
+        'update' => 'Filtruj',
+    ],
     'button' => [
         'save' => 'Zapisz',
         'add' => 'Dodaj'
@@ -19,6 +24,7 @@ return [
             'price' => 'Cena',
             'image' => 'Grafika',
             'action' => 'Akcje',
+            'categories' => 'Kategorie',
         ]
     ]
 ];

@@ -12,6 +12,9 @@ window.$ = window.jQuery = $;
 import axios from 'axios';
 window.axios = axios;
 
+import PP from 'popper.js'
+window.PP = PP;
+
 // ES6 Modules or TypeScript
 import Swal from 'sweetalert2'
 window.Swal = Swal;

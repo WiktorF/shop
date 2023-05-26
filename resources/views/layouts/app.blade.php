@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
 
 </head>
 <body>

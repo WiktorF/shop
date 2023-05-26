@@ -26,15 +26,13 @@ Route::get('/hello',  [Hellov2Controller::class, 'show']);
 
 Route::get('/',  [WelcomeController::class, 'index']);
 
-Route::middleware(['auth', 'verified'])->group(function(){
-    Route::resource('products',  ProductController::class);
-
-    Route::get('/users/list',  [UsersController::class, 'index'])->middleware('auth');
-    Route::delete('/users/{user}',  [UsersController::class, 'destroy'])->middleware('auth');
-
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::middleware(['can:isAdmin'])->group(function () {
+        Route::resource('products',  ProductController::class)->middleware('can:isAdmin');
+        Route::get('/users/list',  [UsersController::class, 'index'])->middleware('can:isAdmin');
+        Route::delete('/users/{user}',  [UsersController::class, 'destroy'])->middleware('can:isAdmin');
+    });
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
 Auth::routes(['verify' => true]);
-
-

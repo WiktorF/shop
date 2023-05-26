@@ -43,7 +43,7 @@ function getProducts(paginate){
 
 function getImage(product){
     if(!!product.image_path){
-        return StoragePath + product.image_path;
+        return StoragePath + '/' + product.image_path;
     }else{
         return defaultImage;
     }

@@ -17,7 +17,7 @@
                                 <a class="dropdown-item" href="#">Best Selling</a>
                             </div>
                         </div>
-                        <div class="dropdown float-right">
+                        <div class="dropdown float-end">
                             <a class="btn btn-lg btn-light dropdown-toggle products_actual_count" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-haspopup="true">5<span class="caret"></span></a>
                             <div class="dropdown-menu dropdown-menu-right products_count" aria-labelledby="navbarDropdown" x-placement="bottom-end" style="will-change: transform; position: absolute; transform: translate3d(120px, 48px, 0px); top: 0px; left: 0px;">
                                 <a class="dropdown-item" href="#">5</a>
@@ -55,13 +55,7 @@
                 </div>
                 <div class="row sorting mb-5 mt-5">
                     <div class="col-12">
-                        <a class="btn btn-light">
-                            <i class="fas fa-arrow-up mr-2"></i> Back to top</a>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-left"></span> </button>
-                            <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-right"></span> </button>
-                        </div>
-                        <div class="dropdown float-md-right">
+                        <div class="dropdown float-end">
                             <a class="btn btn-light btn-lg dropdown-toggle products_actual_count" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">5<span class="caret"></span></a>
                             <div class="dropdown-menu products_count" aria-labelledby="navbarDropdown" x-placement="bottom-end">
                                 <a class="dropdown-item" href="#">5</a>
@@ -93,7 +87,7 @@
             </div>
             <input id="ex2" type="text" class="slider " value="50,150" data-slider-min="10" data-slider-max="200" data-slider-step="5" data-slider-value="[50,150]" data-value="50,150" style="display: none;">
             <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-            <a href="#" class="btn btn-lg btn-block btn-primary mt-5" id="filter-button">{{__('shop.welcome.update')}}</a>
+            <a href="#" class="btn btn-lg btn-block btn-primary mt-5" id="filter-button"><i class="fa-solid fa-magnifying-glass-dollar"></i> {{__('shop.welcome.update')}}</a>
         </form>
 
     </div>

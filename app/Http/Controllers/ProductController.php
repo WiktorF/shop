@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\UpsertProductRequest;
-use App\Models\ProductCategory;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ProductController extends Controller
 {
@@ -43,7 +44,7 @@ class ProductController extends Controller
             $product->image_path = $request->file('image')->store('products');
         }
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status', __('shop.product.store.success'));
     }
 
     /**
@@ -80,7 +81,7 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status', __('shop.product.update.success'));
 
     }
 
@@ -91,6 +92,7 @@ class ProductController extends Controller
     {
         try {
             $product->delete();
+            Session()->flash('status', __('shop.product.delete.success'));
             return response()->json([
                 'status' => 'success'
             ]);

@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    @include('helpers.flash_massages')
+    <div class="row">
+        <div class="col-12">
+            <h1>{{__('shop.user.index_title')}}</h1>
+        </div>
+
 <table class="table table-hover">
     <thead>
       <tr>

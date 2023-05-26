@@ -15,6 +15,15 @@ return [
         'edit_title' => 'Edycja produktu: :name',
         'add_title' => 'Dodawanie produktu',
         'index_title' => 'Lista produktów',
+        'store' => [
+            'success' => 'Produkt dodany!',
+        ],
+        'update' => [
+            'success' => 'Produkt zaktualizowany!'
+        ],
+        'delete' => [
+            'success' => 'Produkt usunięty!'
+        ],
         'fields' => [
             'category' => 'Kategoria produktu',
             'title' => 'Dodawanie produktu',
@@ -26,5 +35,13 @@ return [
             'action' => 'Akcje',
             'categories' => 'Kategorie',
         ]
-    ]
+    ],
+
+    'user' => [
+        'index_title' => 'Lista użytkowników',
+
+        'delete' => [
+            'success' => 'Użytkownik usunięty!',
+        ],
+    ],
 ];

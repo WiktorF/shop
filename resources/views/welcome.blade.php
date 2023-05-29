@@ -48,6 +48,9 @@
                                     <i>{{ $product->price }} zł</i>
                                 </h5>
                             </div>
+                            <button type="button" class="btn btn-success add-product-button" data-id='{{ $product->id }}'>
+                                <i class="fa-solid fa-cart-plus">   Dodaj do koszyka</i>
+                            </button>
                         </div>
                     </div>
                     @endforeach
@@ -94,9 +97,13 @@
 </div>
 @endsection
 @section('javascript')
-    const StoragePath = '{{ asset('storage/') }}';
-    const defaultImage = '{{$defaultImage}}';
+    const welcome_data = {
+        StoragePath: '{{ asset('storage/') }}',
+        defaultImage: '{{ $defaultImage }}',
+        addToCart: '{{ url('cart') }}/',
+    }
 @endsection
 @section('js-files')
     @vite(['resources/js/welcome.js'])
+    @vite(['resources/js/delete.js'])
 @endsection

@@ -1,16 +1,50 @@
-console.log($);
+console.log($, Swal);
+
 $(document).ready(function () {
         $('div.products_count a').click(function(event){
             event.preventDefault();
             $('a.products_actual_count').text($(this).text());
             getProducts($(this).text());
-    });
+    })
+});
 
     $('a#filter-button').click(function(event){
         event.preventDefault();
         getProducts($('a.products_actual_count').first().text());
-    })
-});
+    });
+
+    $('button.add-product-button').click(function(event){
+        event.preventDefault();
+        $.ajax({
+            method: "POST",
+            url: welcome_data.addToCart + $(this).data('id'),
+        })
+            .done(function(response){
+                Swal.fire({
+                    title: "Sukces",
+                    text: "Produkt zostal dodany do koszyka!",
+                    icon: "success",
+                    showDenyButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#808080",
+                    denyButtonText: "<i class='fa-solid fa-bag-shopping'> Powrot</i>",
+                    confirmButtonText: "<i class='fa-solid fa-cart-plus'> Przejdz do koszyka</i>",
+                        })
+                        .then((result) => {
+                            if (result.isConfirmed) {
+                                alert("sukces");
+                                }
+                            })
+                        })
+                        .fail(function () {
+                            Swal.fire(
+                            "Oops..",
+                            "Wystąpił błąd",
+                            'error',
+                            )
+                        })
+                    })
+
 function getProducts(paginate){
     const form = $('form.sidebar-filter').serialize();
         $.ajax({
@@ -34,17 +68,21 @@ function getProducts(paginate){
                     '               <i>'+ product.price +' zł</i>' +
                     '            </h5>' +
                     '        </div>' +
+                    '        <button type="button" class="btn btn-success add-product-button" data-id=' + product.id +'>' +
+                    '            <i class="fa-solid fa-cart-plus">   Dodaj do koszyka</i>' +
+                    '        </button>' +
                     '   </div>' +
                     '</div>';
                     $('div#products_wrapper').append(html);
                 })
             })
-}
+        }
+
 
 function getImage(product){
     if(!!product.image_path){
-        return StoragePath + '/' + product.image_path;
+        return welcome_data.StoragePath + '/' + product.image_path;
     }else{
-        return defaultImage;
+        return welcome_data.defaultImage;
     }
 }

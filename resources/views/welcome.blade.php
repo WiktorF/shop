@@ -48,7 +48,7 @@
                                     <i>{{ $product->price }} zł</i>
                                 </h5>
                             </div>
-                            <button type="button" class="btn btn-success add-product-button" data-id='{{ $product->id }}'>
+                            <button type="button" class="btn btn-success add-product-button" data-id='{{ $product->id }}' @guest disabled @endguest>
                                 <i class="fa-solid fa-cart-plus">   Dodaj do koszyka</i>
                             </button>
                         </div>

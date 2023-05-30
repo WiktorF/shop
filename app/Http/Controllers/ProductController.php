@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\ProductCategory;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpsertProductRequest;
+use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class ProductController extends Controller
@@ -42,6 +45,9 @@ class ProductController extends Controller
         if($request->hasFile('image')){
             $request->file('image')->store('public/products');
             $product->image_path = $request->file('image')->store('products');
+            if(Storage::exists($product->image_path)){
+                Storage::delete($product->image_path);
+            }
         }
         $product->save();
         return redirect(route('products.index'))->with('status', __('shop.product.store.success'));
@@ -74,8 +80,12 @@ class ProductController extends Controller
      */
     public function update(UpsertProductRequest $request, Product $product)
     {
+        $oldImagePath = $product->image_path;
         $product->fill($request->validated());
         if($request->hasFile('image')){
+            if(Storage::exists($oldImagePath)){
+                Storage::delete($oldImagePath);
+            }
             $request->file('image')->store('public/products');
             $product->image_path = $request->file('image')->store('products');
         }
@@ -102,5 +112,14 @@ class ProductController extends Controller
                 'message' => 'Wystąpił błąd'
             ])->setStatusCode(500);
         }
+    }
+
+    public function downloadImage(Product $product)
+    {
+            if(Storage::exists($product->image_path)){
+                return Storage::download($product->image_path);
+            }
+        return Redirect::back();
+
     }
 }

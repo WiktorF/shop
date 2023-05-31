@@ -8,6 +8,11 @@ import 'bootstrap';
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;
+window.$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+    }
+})
 
 import axios from 'axios';
 window.axios = axios;

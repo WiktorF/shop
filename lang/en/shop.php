@@ -1,6 +1,18 @@
 <?php
 
 return [
+    'cart' => [
+        'cart' => 'Shopping cart',
+        'name' => 'Name',
+        'quantity' => 'Quantity',
+        'price' => 'Price',
+        'total' => 'Total',
+        'order_total' => 'Order Total',
+        'button' => [
+            'continue' => 'Continue shopping',
+            'add' => 'Add to cart',
+        ],
+    ],
     'welcome' => [
         'show' => 'Showing',
         'products' => 'Products',
@@ -38,6 +50,14 @@ return [
         ],
     'user' => [
         'index_title' => 'List of users',
+        'edit_title' => 'Editing user: :email',
+        'fields' => [
+            'city' => 'City',
+            'zip_code' => 'Zip code',
+            'street' => 'Street',
+            'street_no' => 'Street number',
+            'house_no' => 'House number',
+        ],
 
         'delete' => [
             'success' => 'User deleted!',

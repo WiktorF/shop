@@ -49,7 +49,7 @@
                                 </h5>
                             </div>
                             <button type="button" class="btn btn-success add-product-button" data-id='{{ $product->id }}' @guest disabled @endguest>
-                                <i class="fa-solid fa-cart-plus">   Dodaj do koszyka</i>
+                                <i class="fa-solid fa-cart-plus"></i> Dodaj do koszyka
                             </button>
                         </div>
                     </div>
@@ -101,6 +101,8 @@
         StoragePath: '{{ asset('storage/') }}',
         defaultImage: '{{ $defaultImage }}',
         addToCart: '{{ url('cart') }}/',
+        listCart: '{{ url('cart') }}',
+        isGuest: '{{ $isGuest }}'
     }
 @endsection
 @section('js-files')

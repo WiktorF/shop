@@ -105,7 +105,7 @@
                         <div class="row mb-0">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary float-end">
-                                    Edytuj
+                                    {{__('shop.button.save')}}
                                 </button>
                             </div>
                         </div>

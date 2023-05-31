@@ -1,6 +1,18 @@
 <?php
 
 return [
+    'cart' => [
+        'cart' => 'Koszyk zakupów',
+        'name' => 'Nazwa',
+        'quantity' => 'Ilość',
+        'price' => 'Cena',
+        'total' => 'Suma',
+        'order_total' => 'Całkowita suma',
+        'button' => [
+            'continue' => 'Kontynuuj zakupy',
+            'add' => 'Dodaj do koszyka',
+        ],
+    ],
     'welcome' => [
         'show' => 'Podgląd',
         'products' => 'Produkty',
@@ -39,6 +51,14 @@ return [
 
     'user' => [
         'index_title' => 'Lista użytkowników',
+        'edit_title' => 'Edycja użytkownika: :email',
+        'fields' => [
+            'city' => 'Miasto',
+            'zip_code' => 'Kod pocztowy',
+            'street' => 'Ulica',
+            'street_no' => 'Numer ulicy',
+            'house_no' => 'Numer domu',
+        ],
 
         'delete' => [
             'success' => 'Użytkownik usunięty!',

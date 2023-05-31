@@ -32,10 +32,10 @@ $(document).ready(function () {
                         })
                         .then((result) => {
                             if (result.isConfirmed) {
-                                alert("sukces");
+                                window.location = welcome_data.listCart;
                                 }
                             })
-                        })
+
                         .fail(function () {
                             Swal.fire(
                             "Oops..",
@@ -44,6 +44,7 @@ $(document).ready(function () {
                             )
                         })
                     })
+                });
 
 function getProducts(paginate){
     const form = $('form.sidebar-filter').serialize();
@@ -68,13 +69,13 @@ function getProducts(paginate){
                     '               <i>'+ product.price +' zł</i>' +
                     '            </h5>' +
                     '        </div>' +
-                    '        <button type="button" class="btn btn-success add-product-button" data-id=' + product.id +'>' +
-                    '            <i class="fa-solid fa-cart-plus">   Dodaj do koszyka</i>' +
+                    '        <button type="button" class="btn btn-success add-product-button"' + getDisabled() + ' data-id="' + product.id + '">' +
+                    '            <i class="fa-solid fa-cart-plus"></i>   Dodaj do koszyka' +
                     '        </button>' +
                     '   </div>' +
                     '</div>';
                     $('div#products_wrapper').append(html);
-                })
+                });
             })
         }
 
@@ -85,4 +86,11 @@ function getImage(product){
     }else{
         return welcome_data.defaultImage;
     }
+}
+
+function getDisabled(){
+    if(welcome_data.isGuest){
+        return ' disabled';
+    }
+    return '';
 }

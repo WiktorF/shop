@@ -40,7 +40,7 @@ class CartItem{
     }
 
     public function getImagePath(){
-        return $this->imagePath;
+        return !is_null($this->imagePath) ? asset('storage/' . $this->imagePath) : config('shop.defaultImage');
     }
 
     public function getSum(){

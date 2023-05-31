@@ -18,6 +18,12 @@ class Cart{
         return $this->items;
     }
 
+    public function getSum(){
+        return $this->items->sum(function ($item){
+            return $item->getSum();
+        });
+    }
+
     public function addItem(Product $product){
         $items = $this->items;
         $item = $items->first($this->isProductIdSameAsItemProduct($product));
@@ -30,6 +36,12 @@ class Cart{
         $items->add($newitem);
         return new Cart($items);
     }
+
+    public function removeItem(Product $product){
+        $items = $this->items->reject($this->isProductIdSameAsItemProduct($product));
+        return new Cart($items);
+    }
+
     public function isProductIdSameAsItemProduct(Product $product){
         return function($item) use ($product){
             return $product->id == $item->getProductId();

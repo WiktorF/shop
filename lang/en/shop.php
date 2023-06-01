@@ -2,6 +2,8 @@
 
 return [
     'cart' => [
+        'add_item' => 'Add to cart',
+        'list' => 'Shopping list',
         'cart' => 'Shopping cart',
         'name' => 'Name',
         'quantity' => 'Quantity',
@@ -10,7 +12,7 @@ return [
         'order_total' => 'Order Total',
         'button' => [
             'continue' => 'Continue shopping',
-            'add' => 'Add to cart',
+            'pay' => 'Pay',
         ],
     ],
     'welcome' => [
@@ -24,6 +26,8 @@ return [
     ],
 
     'product' => [
+        'show' => 'Product preview',
+        'no_category' => 'NONE',
         'edit_title' => 'Editing product: :name',
         'add_title' => 'Adding product',
         'index_title' => 'List of products',

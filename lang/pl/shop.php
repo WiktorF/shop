@@ -2,6 +2,8 @@
 
 return [
     'cart' => [
+        'add_item' => 'Dodaj do koszyka',
+        'list' => 'Zamówienia',
         'cart' => 'Koszyk zakupów',
         'name' => 'Nazwa',
         'quantity' => 'Ilość',
@@ -10,7 +12,7 @@ return [
         'order_total' => 'Całkowita suma',
         'button' => [
             'continue' => 'Kontynuuj zakupy',
-            'add' => 'Dodaj do koszyka',
+            'pay' => 'Zapłać',
         ],
     ],
     'welcome' => [
@@ -24,6 +26,8 @@ return [
     ],
 
     'product' => [
+        'show' => 'Podgląd produktu',
+        'no_category' => 'BRAK',
         'edit_title' => 'Edycja produktu: :name',
         'add_title' => 'Dodawanie produktu',
         'index_title' => 'Lista produktów',

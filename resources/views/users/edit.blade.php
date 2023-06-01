@@ -16,7 +16,7 @@
                             <label for="city" class="col-md-4 col-form-label text-md-end">{{__('shop.user.fields.city')}}</label>
 
                             <div class="col-md-6">
-                                <input id="city" maxlenght="255" type="text" class="form-control @error('city') is-invalid @enderror" name="address[city]" value="@if($user->hasAddress()){{$user->address->city}}@endif" required autocomplete="city" autofocus>
+                                <input id="city" maxlenght="255" type="text" class="form-control @error('city') is-invalid @enderror" name="address[city]" value="{{$user?->address?->city}}" required autocomplete="city" autofocus>
 
                                 @error('city')
                                 <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="zip_code" class="col-md-4 col-form-label text-md-end">{{__('shop.user.fields.zip_code')}}</label>
 
                             <div class="col-md-6">
-                                <input id="zip_code" maxlenght="6" type="text" class="form-control @error('zip_code') is-invalid @enderror" name="address[zip_code]" value="@if($user->hasAddress()){{$user->address->zip_code}}@endif" autofocus></input>
+                                <input id="zip_code" maxlenght="6" type="text" class="form-control @error('zip_code') is-invalid @enderror" name="address[zip_code]" value="{{$user?->address?->zip_code}}" autofocus></input>
 
                                 @error('zip_code')
                                 <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                             <label for="street" class="col-md-4 col-form-label text-md-end">{{__('shop.user.fields.street')}}</label>
 
                             <div class="col-md-6">
-                                <input id="street" type="text" class="form-control @error('street') is-invalid @enderror" name="address[street]" required autocomplete="street" value="@if($user->hasAddress()){{$user->address->street}}@endif" autofocus>
+                                <input id="street" type="text" class="form-control @error('street') is-invalid @enderror" name="address[street]" required autocomplete="street" value="{{$user?->address?->street}}" autofocus>
 
                                 @error('street')
                                 <span class="invalid-feedback" role="alert">
@@ -55,7 +55,7 @@
                             <label for="street_no" class="col-md-4 col-form-label text-md-end">{{__('shop.user.fields.street_no')}}</label>
 
                             <div class="col-md-6">
-                                <input id="street_no" maxlength="5" type="text" class="form-control @error('street_no') is-invalid @enderror" name="address[street_no]" value="@if($user->hasAddress()){{$user->address->street_no}}@endif" required autocomplete="street_no">
+                                <input id="street_no" maxlength="5" type="text" class="form-control @error('street_no') is-invalid @enderror" name="address[street_no]" value="{{$user?->address?->street_no}}" required autocomplete="street_no">
 
                                 @error('street_no')
                                 <span class="invalid-feedback" role="alert">
@@ -69,7 +69,7 @@
                             <label for="house_no" class="col-md-4 col-form-label text-md-end">{{__('shop.user.fields.house_no')}}</label>
 
                             <div class="col-md-6">
-                                <input id="house_no" maxlength="5" type="text" class="form-control @error('house_no') is-invalid @enderror" name="address[house_no]" value="@if($user->hasAddress()){{$user->address->house_no}}@endif" required autocomplete="house_no">
+                                <input id="house_no" maxlength="5" type="text" class="form-control @error('house_no') is-invalid @enderror" name="address[house_no]" value="{{$user?->address?->house_no}}" required autocomplete="house_no">
 
                                 @error('house_no')
                                 <span class="invalid-feedback" role="alert">

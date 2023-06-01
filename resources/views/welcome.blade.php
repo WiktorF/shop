@@ -7,16 +7,6 @@
             <div class="container-fluid">
                 <div class="row   mb-5">
                     <div class="col-12">
-                        <div class="dropdown text-md-left text-center">
-                            <label class="mr-2">Sort by:</label>
-                            <a class="btn btn-lg btn-light dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relevance <span class="caret"></span></a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" x-placement="bottom-start" style="position: absolute; transform: translate3d(71px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                <a class="dropdown-item" href="#">Relevance</a>
-                                <a class="dropdown-item" href="#">Price Descending</a>
-                                <a class="dropdown-item" href="#">Price Ascending</a>
-                                <a class="dropdown-item" href="#">Best Selling</a>
-                            </div>
-                        </div>
                         <div class="dropdown float-end">
                             <a class="btn btn-lg btn-light dropdown-toggle products_actual_count" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-haspopup="true">5<span class="caret"></span></a>
                             <div class="dropdown-menu dropdown-menu-right products_count" aria-labelledby="navbarDropdown" x-placement="bottom-end" style="will-change: transform; position: absolute; transform: translate3d(120px, 48px, 0px); top: 0px; left: 0px;">
@@ -49,7 +39,7 @@
                                 </h5>
                             </div>
                             <button type="button" class="btn btn-success add-product-button" data-id='{{ $product->id }}' @guest disabled @endguest>
-                                <i class="fa-solid fa-cart-plus"></i> Dodaj do koszyka
+                                <i class="fa-solid fa-cart-plus"></i> {{__('shop.cart.add_item')}}
                             </button>
                         </div>
                     </div>

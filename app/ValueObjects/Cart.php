@@ -24,6 +24,12 @@ class Cart{
         });
     }
 
+    public function getQuantity(){
+        return $this->items->sum(function ($item){
+            return $item->getQuantity();
+        });
+    }
+
     public function addItem(Product $product){
         $items = $this->items;
         $item = $items->first($this->isProductIdSameAsItemProduct($product));
@@ -40,6 +46,11 @@ class Cart{
     public function removeItem(Product $product){
         $items = $this->items->reject($this->isProductIdSameAsItemProduct($product));
         return new Cart($items);
+    }
+
+    public function hasItems():bool
+    {
+        return $this->items->isNotEmpty();
     }
 
     public function isProductIdSameAsItemProduct(Product $product){
